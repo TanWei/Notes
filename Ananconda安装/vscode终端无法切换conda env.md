@@ -1,2 +1,0 @@
-搜了一下发现是因为powershell的安全策略问题，默认禁止执行任何powershell脚本
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
