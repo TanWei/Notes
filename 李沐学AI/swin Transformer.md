@@ -29,5 +29,14 @@ vit有一个cls的token，swin没有<br/>
 复杂度下降几十上百倍。<br/>
 问题：窗口之间缺少通信？<br/>
 解决：按照上文的shift window算法<br/>
-
-
+![图片](./swin总体.png)
+### shift window
+怎么做<br/> 
+mask移位<br/>
+![图片](./Mask移位.png)
+问题：移位后，无关的patch挨着了<br/>
+解决：通过mask解决<br/>
+#### mask操作
+1、先拉直<br/>
+2、直接做自注意力计算，不同的直接去掉。方法：使用掩码模板和结果相加，不要的变为负数，经过softmax变为零<br/>
+![图片](./掩码mask.png)
