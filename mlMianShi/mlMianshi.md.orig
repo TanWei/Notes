@@ -8,8 +8,11 @@
 6、推导一下bert的shape<br/>
 7、bert训练如何行列式化<br/>
 8、如何prof bert的，训练性能。<br/>
+<<<<<<< Updated upstream
+=======
 .....
 
+>>>>>>> Stashed changes
 
 第一阶段：入门，目标是了解深度学习+了解paddle架构+cuda性能调优
 1.基础知识，了解整体面貌:1~2星期
