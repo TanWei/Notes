@@ -5,4 +5,29 @@
 #### 2.2 lockfree  
 维基百科上的定义如下：
 Lock free允许单独的线程个体阻塞，但是会保证系统整体上的吞吐，如果一个算法对应的程序的线程在运行了足够长时间的情况下，至少有一个线程取得了进展，那么我们说这个算法是lock-free的。
+```
+#include <atomic>
+class SpinLock {
+public:
+    SpinLock() : flag_(false) {}
+    void lock() {
+        bool expect = false;
+        while (
+            !flag_.compare_exchange_weak(expect, true)
+        ) {
+            // 这里一定要将expect复原，执行失败 expect结果是未定的
+            expect = false;
+        }
+    }
+    void unlock() {
+        flag_.store(false);
+    }
+private:
+    std::atomic<bool> flag_;
+};
+
+```
 ### 2.3 wait-free
+
+## 3. Memory model
+
