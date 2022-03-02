@@ -17,14 +17,16 @@ class singleton
 public:
     static singleton* getInstance()
     {
+        instance.load(std::memory_order_relaxed);
         std::atomic_thread_fence(std::memory_order_acquire);
         if (!instance)
         {
             std::lock_guard<std::mutex> lock(m);
+            instance.load(std::memory_order_relaxed);
             if (!instance)
             {
                 std::atomic_thread_fence(std::memory_order_release);
-                instance = new singleton();
+                instance.store(new singleton());
             }
         }
         return instance;
@@ -32,8 +34,10 @@ public:
 private:
     singleton() {}
     singleton operator=(const singleton&) = delete;
-    static singleton* instance;
+    static std::atomic<singleton*> instance;
 };
+
+// 内存栅栏：https://preshing.com/20130922/acquire-and-release-fences/
 
 std::atomic<Singleton*> Singleton::m_instance;
 std::mutex Singleton::m_mutex;
