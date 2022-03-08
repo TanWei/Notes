@@ -22,7 +22,7 @@ public:
     void Take(std::list<T>& list)
     {
         std::unique_lock<std::mutex> lock(m_mutex);
-        m_notEmpty.wait(lock, [this] { return m_needStop || NotEmpty() });
+        m_notEmpty.wait(lock, [this] { return m_needStop || NotEmpty(); });
         if (m_needStop)
         {
             return;
@@ -33,7 +33,7 @@ public:
     void Take(T& t)
     {
         std::unique_lock<std::mutex> locker(m_mutex);
-        m_notEmpty.wait(locker, [this](){return m_needStop || m_notEmpty(); });
+        m_notEmpty.wait(locker, [this](){return m_needStop || NotEmpty(); });
         if (m_needStop)
         {
             return;
@@ -90,7 +90,7 @@ private:
     }
 
     template <typename F>
-    void Add(F&& x)
+    void    Add(F&& x)
     {
         std::unique_lock<std::mutex> locker(m_mutex);
         m_notFull.wait(locker, [this](){return m_needStop || NotFull()});
@@ -109,9 +109,3 @@ private:
     int m_maxSize;
     bool m_needStop;
 };
-
-
-int main()
-{
-    
-}
