@@ -25,3 +25,37 @@ https://www.bilibili.com/video/BV1ih411J7Kz?from=search&seid=1236651394740331132
 einsum
 
 4.cuda算子+性能调优，针对已有的算子或者新写的算子：3~4个星期
+
+
+
+
+//===20220312
+框架
+1.动静态图的auto_grad的原理和实现
+https://www.youtube.com/watch?v=MswxJw-8PvE
+Paddle?
+2.动态图hook上的原理和实现
+https://www.youtube.com/watch?v=syLFCVYua6Q
+3.动转静的原理和实现
+4.静态图的图，pass,executor,gc机制
+5.memory allocation：显存管理器
+
+IO
+1.dataloader的原理
+2.如何把numpy的tensor转换为框架的tensor，如何更加的高效
+
+性能优化
+1.常见的做cuda优化的办法以
+2.常见的性能分析的方法
+
+模型
+1.常见OP
+2.常见模型的shape推导
+resnet和bert
+
+例子或者作业：
+找到tensor flow/pytorch等有而pp没有的功能或者api，提交pr
+1.lazytensor
+2.iensum
+
+![pic](./最小集.png)
