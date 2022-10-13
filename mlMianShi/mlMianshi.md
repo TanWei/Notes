@@ -61,6 +61,24 @@ resnet和bert
 ![pic](./最小集.png)
 
 ##重点
+一、transformer
+1.论文，bert论文
+https://www.bilibili.com/video/BV1pu411o7BE/?spm_id_from=333.788&vd_source=2688570e4f2e46894c07ccdf4039ece9
+2.模型结构（特别是shape）
+https://blog.csdn.net/weixin_44823313/article/details/123656667
+https://jalammar.github.io/illustrated-transformer/
+3.优化方法
+3.1 训练
+
+Paddle bert 是 mlperf第一
+优化的原理
+
+
+二、数据类型
+paddle都有文档
+1.混合精度
+2.BFloat16
+
 ###1、Transformer
 __老师讲的非常的棒，大家可以用下面的20道面试题看看自己是不是真的掌握了transformer这个模型。__
 1.Transformer为何使用多头注意力机制？（为什么不使用一个头）
@@ -101,3 +119,9 @@ LayerNorm 在Transformer的位置是哪里？
 19.Transformer训练的时候学习率是如何设定的？Dropout是如何设定的，位置在哪里？Dropout 在测试的需要有什么需要注意的吗？
 
 20.解码端的残差结构有没有把后续未被看见的mask信息添加进来，造成信息的泄露。
+
+https://zhuanlan.zhihu.com/p/496012402?utm_medium=social&utm_oi=629375409599549440
+
+zero deepspeed
+
+sharding stage2
