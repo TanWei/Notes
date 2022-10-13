@@ -107,6 +107,7 @@ Self-Attention 的输出
 公式中计算矩阵**Q**和**K**每一行向量的内积，为了防止内积过大，因此除以 ![](https://www.zhihu.com/equation?tex=d_%7Bk%7D)
  的平方根。**Q**乘以**K**的转置后，得到的矩阵行列数都为 n，n 为句子单词数，这个矩阵可以表示单词之间的 attention 强度。下图为**Q**乘以 ![](https://www.zhihu.com/equation?tex=K%5E%7BT%7D)
  ，1234 表示的是句子中的单词。
+ [dk公式解释](https://blog.csdn.net/qq_37430422/article/details/105042303)
 
 ![](https://pic2.zhimg.com/v2-9caab2c9a00f6872854fb89278f13ee1_b.jpg)
 
